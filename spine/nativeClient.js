@@ -76,7 +76,7 @@ exports.ErizoNativeConnection = function (spec){
     };
     
     that.prepareVideo = function (url) {
-        log.info("Preparing video", url);
+        log.info("Preparing video file", url);
         externalInput = new addon.ExternalInput(url);
         externalInput.setAudioReceiver(wrtc);
         externalInput.setVideoReceiver(wrtc);
@@ -114,6 +114,7 @@ exports.ErizoNativeConnection = function (spec){
     };
 
     that.close = function() {
+        log.info("Closing Native stream Connection");
         if (externalOutput){
             externalOutput.close();
             if(externalOutput.interval)
